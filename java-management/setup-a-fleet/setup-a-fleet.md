@@ -38,7 +38,15 @@ In this lab, you will:
 
   ![image of agree advanced features](images/select-advanced-agree.png)
 
-  LCM is a part of JMS's reporting and management infrastructure. JMS enables users to observe and manage the lifecycles of their Java SE runtimes (on-premises or in the Cloud) by performing LCM operations such as installing or removing Java Runtimes. To learn more about the Lifecycle Management feature, see [Perform Java Lifecycle Management with Java Management Service](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3202).
+  There are 4 different advanced features available:
+  * Lifecycle management - enables users to observe and manage the lifecycles of their Java SE runtimes (on-premises or in the Cloud)
+  * Advanced usage tracking - tracks the java servers, applications deployed and the java libraries used
+  * Crypto event analysis 
+  * Java Flight Recorder (JFR) - to obtain the java flight recorder of the java applications in the fleet
+
+  To learn more about the advanced features, see [Using Advanced Features with Java Management Service](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3202).
+
+  ![image of selected create fleet options](images/create-fleet-advanced-feature.png)
 
 5. Click **Next**. You are prompted to review the fleet information and management agent configuration. If you wish to modify your choices, click **Previous**.
 
@@ -46,7 +54,7 @@ In this lab, you will:
 
   ![image of create fleet confirm creation](images/create-fleet-create.png)
 
-7. Click **Download installation script**.
+7. Click **Download software and installation script**.
 
   ![image of page to download installation script](images/download-installation-script.png)
 
@@ -55,6 +63,8 @@ In this lab, you will:
   ![image of page to select installation script os](images/download-installation-script-os.png)
 
   Click **Close** and **Done** once the download is complete. The downloaded file will be used in [Lab 5: Install Management Agent on your Managed Instances](?lab=set-up-of-management-agent) to install the Management Agent. You can still download the installation script after the fleet is created.
+
+  ![image of page to download installation script done](images/download-installation-script-done.png)
 
 8. After JMS is linked to the management agent, it will collect information on your Java runtimes. As the management agent scans the instance periodically, the information may not appear immediately. The scanning frequency can be changed here.
 
@@ -65,6 +75,10 @@ In this lab, you will:
 10. Change the **Java Runtime Discovery** and **Java Runtime Usage** to the desired value. For this example, change **Java Runtime Discovery** to **3 hours**, and **Java Runtime Usage** to **5 minutes**.
 
   ![image of modify agent settings page](images/fleet-modify-agent-settings-new.png)
+
+11. Click **Save changes** to save the new setting.
+
+  ![image of modify agent settings page](images/fleet-modify-agent-settings-save.png)
 
 You may now **proceed to the next lab**.
 
