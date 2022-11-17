@@ -27,13 +27,31 @@ In this lab, you will:
 
   To add a policy, in the Oracle Cloud Console, open the navigation menu and click **Identity & Security**. Under **Identity**, click **Policies**.
 
-  Click **JMS-policies**, and click **Edit Policy Statements**, then click **+Another Statement** at the bottom right.
+  ![image of console navigation to java management](images/navigate-policies.png)
+
+  Click **JMS-policies**.
+  
+  ![image of console navigation to java management](images/root-compartment-jms-policy.png)
+
+  Click **Edit Policy Statements**
+  
+  ![image of console navigation to java management](images/edit-jms-policy.png)
+  
+  Click **+Another Statement** at the bottom right. 
+  
+  ![image of console navigation to java management](images/jms-policy-add.png)
+  
+  Add the following policy. Click **Save** to save the policy.
 
   ```
   <copy>
   ALLOW dynamic-group JMS_DYNAMIC_GROUP TO MANAGE instances IN COMPARTMENT Fleet_Compartment
   </copy>
   ```
+
+  ![image of console navigation to java management](images/save-jms-policy.png)
+
+  
 
 **On Linux**
 
@@ -175,7 +193,8 @@ In this lab, you will:
   ![image of fleet ocid](images/check-fleet-ocid.png)
 
 4. In the Oracle Cloud Console, open the navigation menu and click **Observability & Management**, and then click **Agents**.
-   ![image of console navigation to management agents](images/console-navigation-agents.png)
+
+ ![image of console navigation to management agents](images/console-navigation-agents.png)
 
 5. Select the compartment that the management agent is contained in.
 
