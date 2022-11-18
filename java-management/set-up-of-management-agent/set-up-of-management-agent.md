@@ -51,18 +51,15 @@ In this lab, you will:
 
   ![image of console navigation to java management](images/save-jms-policy.png)
 
-  
+**On Linux (on OCI)**
 
-**On Linux**
-
-1. Prepare the installation script for Linux downloaded in [Lab 2](?lab=setup-a-fleet). Or enter the following command to transfer the script to the remote Managed Instance.
+1. Prepare the **installation script** for Linux downloaded in [Lab 2](?lab=setup-a-fleet). Or enter the following command to transfer the script to the remote Managed Instance.
 
     ```
     <copy>
     scp -i <your-private-key-file> <path-to-installation-script> <username>@<x.x.x.x>:<copy-to-path>
     </copy>
     ```
-
 2. Connect to your instance using SSH.
 
 3. Enter the following command to change file permissions.
@@ -84,19 +81,61 @@ In this lab, you will:
 5. If installation is successful, you'll see a message similar to the following:
 
      ```
-     <copy>
      ...
      Management Agent installation has been completed.
      Management Agent plugin 'Java Management Service' installation has been completed.
      Management Agent plugin 'Java Usage Tracking' installation has been completed.
      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
+     ```
+
+**On Linux (on premise)**
+
+1. Prepare the **installation script** for Linux downloaded in [Lab 2](?lab=setup-a-fleet). Or enter the following command to transfer the script to the remote Managed Instance.
+
+    ```
+    <copy>
+    scp -i <your-private-key-file> <path-to-installation-script> <username>@<x.x.x.x>:<copy-to-path>
+    </copy>
+    ```
+2. Prepare the **management agent** software for linux downloaded in [Lab 2](?lab=setup-a-fleet) or enter the following command to transfer the script to the remote instance. Ensure that the **management agent** software is in the same directory as the **installation script**.
+
+    ```
+    <copy>
+    scp -i <your-private-key-file> <path-to-management-agent-software> <username>@<x.x.x.x>:<copy-to-path>
+    </copy>
+    ```
+3. Connect to your instance using SSH.
+
+4. Enter the following command to change file permissions.
+
+     ```
+     <copy>
+     chmod +x <copy-to-path>/<installation-script-name>.sh
      </copy>
      ```
 
-**On Windows**
+5. Enter the following command to run the installation script. The installation may take some time to complete.
 
-1. Prepare the installation script for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
+     ```
+     <copy>
+     sudo <copy-to-path>/<installation-script-name>.sh
+     </copy>
+     ```
+
+6. If installation is successful, you'll see a message similar to the following:
+
+     ```
+     ...
+     Management Agent installation has been completed.
+     Management Agent plugin 'Java Management Service' installation has been completed.
+     Management Agent plugin 'Java Usage Tracking' installation has been completed.
+     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
+     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
+     ```
+**On Windows (on OCI)**
+
+1. Prepare the **installation script** for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
 
 2. Run Windows Powershell as administrator.
 
@@ -119,14 +158,47 @@ In this lab, you will:
 5. If installation is successful, you'll see a message similar to the following:
 
      ```
-     <copy>
      ...
      Management Agent installation has been completed.
      Management Agent plugin 'Java Management Service' installation has been completed.
      Management Agent plugin 'Java Usage Tracking' installation has been completed.
      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
-     </copy>
+     ```
+
+**On Windows (on premise)**
+
+1. Prepare the **installation script** for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
+
+2. Prepare the **management agent** software for Windows downloaded in [Lab 2](?lab=setup-a-fleet). Ensure that the management agent software is in the same directory as the **installation script**
+
+3. Run Windows Powershell as administrator.
+
+4. Enter the following command to unblock the installation script.
+
+    ```
+    <copy>
+    Unblock-File -Path <path-to-installation-script>
+    </copy>
+    ```
+
+5. Enter the following command to run the installation script. The installation may take some time to complete.
+
+    ```
+    <copy>
+    & <path-to-installation-script>
+    </copy>
+    ```
+
+6. If installation is successful, you'll see a message similar to the following:
+
+     ```
+     ...
+     Management Agent installation has been completed.
+     Management Agent plugin 'Java Management Service' installation has been completed.
+     Management Agent plugin 'Java Usage Tracking' installation has been completed.
+     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
+     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
      ```
 
 ## Task 2: Verify Management Agent Installation

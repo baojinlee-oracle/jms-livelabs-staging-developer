@@ -39,12 +39,13 @@ In this lab, you will:
   ![image of agree advanced features](images/select-advanced-agree.png)
 
   There are 4 different advanced features available:
-  * Lifecycle management - enables users to observe and manage the lifecycles of their Java SE runtimes (on-premises or in the Cloud)
-  * Advanced usage tracking - tracks the java servers, applications deployed and the java libraries used
-  * Crypto event analysis - tracks the cryptographic algorithm of the java applications and generates a vulnerability report
-  * Java Flight Recorder (JFR) - to obtain the java flight recorder of the java applications in the fleet
+  * Lifecycle management (LCM) - Manage the lifecycle of Java runtimes in your fleet by installing or removing reported Java runtime.
+  * Advanced usage tracking - Gain advanced insights into your Java workloads in the fleet by tracking application server and OpenJDK usage and identifying third party libraries used by applications.
+  * Crypto event analysis - Assess the impact of Oracle JRE and JDK Cryptographic roadmap on the applications running in your fleet.
+  * Java Flight Recorder (JFR) - Collect information about events in the application running in your fleet using Java Flight Recorder (JFR), a tool for collecting diagnostic and profiling data about a running Java application.
 
-  To learn more about the advanced features, see [Using Advanced Features with Java Management Service](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3202).
+
+  To learn more about the advanced features, see [Perform Java Lifecycle Management with Java Management Service](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3202).
 
   ![image of selected create fleet options](images/create-fleet-advanced-feature.png)
 
@@ -57,6 +58,8 @@ In this lab, you will:
 7. Click **Download software and installation script**.
 
   ![image of page to download installation script](images/download-installation-script.png)
+
+  Select an appropriate version of the management agent software according to the operating system on your instance.
 
   Select an appropriate version of the installation script according to the operating system on your Managed Instance(s).
 
