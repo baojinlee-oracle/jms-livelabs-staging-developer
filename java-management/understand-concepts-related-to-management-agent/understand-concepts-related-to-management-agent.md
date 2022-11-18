@@ -43,6 +43,7 @@ Before the set up of the Management Agent, it is important to understand the con
   
   The script does the following functions:
     - Install the Management Agent software.
+    - For non-OCI instances, the **Management Agent** software needs to be downloaded (download management agent software) and placed in the same directory as the **Installation Script**
     - Configure the agent with the specific key for the fleet.
     - Install JMS plugins for Java runtime discovery and usage reporting and Lifecycle management operations.
     - Configure the usage tracker.
@@ -72,4 +73,4 @@ Before the set up of the Management Agent, it is important to understand the con
 ## Acknowledgements
 
 - **Author** - Xin Yi Tay, Java Management Service
-- **Last Updated By** - Yixin Wei, September 2022
+- **Last Updated By** - Bao Jin Lee, November 2022
