@@ -41,7 +41,7 @@ In this lab, you will:
   There are 4 different advanced features available:
   * Lifecycle management - enables users to observe and manage the lifecycles of their Java SE runtimes (on-premises or in the Cloud)
   * Advanced usage tracking - tracks the java servers, applications deployed and the java libraries used
-  * Crypto event analysis 
+  * Crypto event analysis - tracks the cryptographic algorithm of the java applications and generates a vulnerability report
   * Java Flight Recorder (JFR) - to obtain the java flight recorder of the java applications in the fleet
 
   To learn more about the advanced features, see [Using Advanced Features with Java Management Service](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3202).
