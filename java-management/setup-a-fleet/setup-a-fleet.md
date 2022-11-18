@@ -30,11 +30,11 @@ In this lab, you will:
 
 3. In the Create Fleet dialog box, enter a name for the Fleet Name (for example, `fleet_1`), and a description.
 
-4. Select **Enable advanced features**.
+4. Select **Enable all advanced features**.
 
   ![image of create fleet options page](images/create-fleet.png)
 
-  Click **Agree**. This is to enable advanced Lifecycle Management (LCM) operations. You can still edit it after the fleet is created.
+  Click **Agree**. This is to enable all the advanced features. You can still edit it after the fleet is created.
 
   ![image of agree advanced features](images/select-advanced-agree.png)
 
@@ -95,4 +95,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 * **Author** - Esther Neoh, Java Management Service
-* **Last Updated By** - Yixin Wei, September 2022
+* **Last Updated By** - Bao Jin Lee, November 2022
