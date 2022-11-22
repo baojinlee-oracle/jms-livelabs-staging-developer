@@ -21,27 +21,31 @@ In this lab, you will:
 - You are using an Oracle Linux image or Windows OS on your Managed Instance for this lab.
 - Access to the cloud environment and resources configured in [Lab 2](?lab=setup-a-fleet).
 
-## Task 1: Install Management Agent
+## Task 1: Install Management Agent on an OCI Host
 
-> **Note:** If you are installing the agent on an **OCI compute instance**, you need to add this policy. You can remove the policy after you've installed the management agent.
+This task is for the installation of Management Agent in an OCI Host (OCI Compute Instance). If you are installing the agent on a non-OCI host (e.g. on premise, other cloud computes) please skip to Task 2.
 
-  To add a policy, in the Oracle Cloud Console, open the navigation menu and click **Identity & Security**. Under **Identity**, click **Policies**.
+**Pre-installation Policy Requirement**
+
+  >**Note:** If you are installing the agent on an OCI compute instance, you need to add this policy. You can remove the policy after you've installed the management agent.
+
+  1. To add a policy, in the Oracle Cloud Console, open the navigation menu and click **Identity & Security**. Under **Identity**, click **Policies**.
 
   ![image of console navigation to java management](images/navigate-policies.png)
 
-  Click **JMS-policies**.
+  2. Click **JMS-policies**.
   
   ![image of console navigation to java management](images/root-compartment-jms-policy.png)
 
-  Click **Edit Policy Statements**
+  3. Click **Edit Policy Statements**
   
   ![image of console navigation to java management](images/edit-jms-policy.png)
   
-  Click **+Another Statement** at the bottom right. 
+  4. Click **+Another Statement** at the bottom right. 
   
   ![image of console navigation to java management](images/jms-policy-add.png)
   
-  Add the following policy. Click **Save** to save the policy.
+  5. Add the following policy. Click **Save** to save the policy.
 
   ```
   <copy>
@@ -89,7 +93,51 @@ In this lab, you will:
      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
      ```
 
-**On Linux (on premise)**
+**On Windows (on OCI)**
+
+1. Prepare the **installation script** for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
+
+2. Run Windows Powershell as administrator.
+
+3. Enter the following command to unblock the installation script.
+
+    ```
+    <copy>
+    Unblock-File -Path <path-to-installation-script>
+    </copy>
+    ```
+
+4. Enter the following command to run the installation script. The installation may take some time to complete.
+
+    ```
+    <copy>
+    & <path-to-installation-script>
+    </copy>
+    ```
+
+5. If installation is successful, you'll see a message similar to the following:
+
+     ```
+     ...
+     Management Agent installation has been completed.
+     Management Agent plugin 'Java Management Service' installation has been completed.
+     Management Agent plugin 'Java Usage Tracking' installation has been completed.
+     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
+     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
+     ```
+
+
+## Task 2: Install Management Agent on a non-OCI Host
+
+This task is for the installation of Management Agent in a non OCI host(e.g. on premise, other cloud computer). 
+
+>**Note:** If you have installed the management agent on an OCI instance in Task 1, please skip this task and proceed to Task 3.
+
+For installation of Management agent on Non OCI hosts, you need to have both the installation script and the management agent software from [Lab 2](?lab=setup-a-fleet). 
+
+Both files need to be placed in the same directory before you proceed.
+
+**On Linux (Non-OCI Host)**
 
 1. Prepare the **installation script** for Linux downloaded in [Lab 2](?lab=setup-a-fleet). Or enter the following command to transfer the script to the remote Managed Instance.
 
@@ -98,7 +146,7 @@ In this lab, you will:
     scp -i <your-private-key-file> <path-to-installation-script> <username>@<x.x.x.x>:<copy-to-path>
     </copy>
     ```
-2. Prepare the **management agent** software for linux downloaded in [Lab 2](?lab=setup-a-fleet) or enter the following command to transfer the script to the remote instance. Ensure that the **management agent** software is in the same directory as the **installation script**.
+2. Prepare the **management agent** software for linux downloaded in [Lab 2](?lab=setup-a-fleet) or enter the following command to transfer the script to the remote instance. Both the **management agent** software and the **installation script** must be placed in the same directory.
 
     ```
     <copy>
@@ -133,44 +181,12 @@ In this lab, you will:
      Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
      ```
-**On Windows (on OCI)**
+
+**On Windows (Non-OCI Host)**
 
 1. Prepare the **installation script** for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
 
-2. Run Windows Powershell as administrator.
-
-3. Enter the following command to unblock the installation script.
-
-    ```
-    <copy>
-    Unblock-File -Path <path-to-installation-script>
-    </copy>
-    ```
-
-4. Enter the following command to run the installation script. The installation may take some time to complete.
-
-    ```
-    <copy>
-    & <path-to-installation-script>
-    </copy>
-    ```
-
-5. If installation is successful, you'll see a message similar to the following:
-
-     ```
-     ...
-     Management Agent installation has been completed.
-     Management Agent plugin 'Java Management Service' installation has been completed.
-     Management Agent plugin 'Java Usage Tracking' installation has been completed.
-     Management Agent was successfully registered using key YourFleetName (ocid1.managementagentinstallkey.oc1.iad.<some ocid hash>).
-     Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
-     ```
-
-**On Windows (on premise)**
-
-1. Prepare the **installation script** for Windows downloaded in [Lab 2](?lab=setup-a-fleet).
-
-2. Prepare the **management agent** software for Windows downloaded in [Lab 2](?lab=setup-a-fleet). Ensure that the management agent software is in the same directory as the **installation script**
+2. Prepare the **management agent** software for Windows downloaded in [Lab 2](?lab=setup-a-fleet). Both the **management agent** software and the **installation script** must be placed in the same directory.
 
 3. Run Windows Powershell as administrator.
 
@@ -201,7 +217,8 @@ In this lab, you will:
      Assigned JMS Fleet is YourFleetName (ocid1.jmsfleet.oc1.iad.<some ocid hash>).
      ```
 
-## Task 2: Verify Management Agent Installation
+
+## Task 3: Verify Management Agent Installation
 
 1. In the Oracle Cloud Console, open the navigation menu, click **Observability & Management**, and then click **Agents** under **Management Agent**.
 
@@ -211,7 +228,7 @@ In this lab, you will:
 
   ![image of agents main page](images/agents-main-page-new.png)
 
-## Task 3: Verify Plug-in Deployment
+## Task 4: Verify Plug-in Deployment
 
 **On non-OCI Linux Managed Instances:**
 
@@ -251,7 +268,7 @@ In this lab, you will:
 
   ![image of plug-in detail page](images/windows-plugin.png)
 
-## Task 4: Check that management agent is tagged with the Fleet OCID
+## Task 5: Check that management agent is tagged with the Fleet OCID
 
 1. In the Oracle Cloud Console, open the navigation menu, click **Observability & Management**, and then click **Fleets** under **Java Management**.
 
@@ -280,7 +297,7 @@ In this lab, you will:
 
 8. The management agent has been associated to your fleet in JMS. It will now collect information on your Java runtimes and Java Usage based on the scanning frequency defined in [Lab 2: Set Up a Fleet](?lab=setup-a-fleet).
 
-## Task 5: Verify detection of Java applications and runtimes
+## Task 6: Verify detection of Java applications and runtimes
 
 For the logging of applications to be visible, Java applications must be run again after the installation of the Management Agent. Now that the Management Agent has been set up in your compute instance, it will be able to detect new Java applications that have been executed. This can be observed in the Oracle Cloud Console.
 

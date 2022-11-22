@@ -75,7 +75,18 @@ In this lab, you will:
 
   ![image of fleet details page](images/fleet-details-page-new.png)
 
-10. Change the **Java Runtime Discovery** and **Java Runtime Usage** to the desired value. For this example, change **Java Runtime Discovery** to **3 hours**, and **Java Runtime Usage** to **5 minutes**.
+10. Change the **Java Runtime Usage**, **Agent Polling Interval**, **Work Request Validity** and  **Java Runtime Discovery** to the desired value. 
+
+    **Java Runtime Usage**: How frequent agents reports Java usage. 
+
+    **Agent Polling Interval**: How frequent which agents check for work request to execute
+ 
+    **Work Request Validity**: The time period for accepting the work request by the agents involved.
+
+    **Java Runtime Discovery**: How frequent agents scan for Java installation.
+
+
+For this example, change **Java Runtime Discovery** to **3 hours**, and **Java Runtime Usage** to **5 minutes**.
 
   ![image of modify agent settings page](images/fleet-modify-agent-settings-new.png)
 
@@ -84,6 +95,40 @@ In this lab, you will:
   ![image of modify agent settings page](images/fleet-modify-agent-settings-save.png)
 
 You may now **proceed to the next lab**.
+
+## Task 2: Verifying policies and Dynamic Groups required for advanced features
+1. This task will verify the creation of the policies and Dynamic Groups required for the advanced features when advanced features was enabled during the fleet creation.
+
+2. In the Oracle Cloud Console, open the navigation menu, click **Identity & Security**. Under **Identity**, select **Dynamic Groups**
+
+  ![image of console navigation to dynamic groups](images/console-navigation-dynamic-groups.png)
+
+3. There should be 2 additional dynamic groups created. 
+    * JMS\_Advanced\_Features\_MACS_GROUP
+    * JMS\_Advance\_Features\_INSTANCE_PRINCIPALS\_GROUP
+
+   ![image of dynamic groups page](images/dynamic-groups-page.png)
+
+   ![image of macs group rules](images/macs-group-rules.png)
+
+   ![image of instance principals group rules](images/instance-principals-group-rules.png)
+
+4. Back on the Dynamic Groups page, click on **Policies** from the Identity menu on the left
+
+  ![image of dynamic groups page policies select](images/dynamic-groups-page-policies-select.png)
+
+5. Select the compartment where the fleet was created in Task 1 (Compartment name should be **Fleet_Compartment**). You should see the policy name **JMS-Advanced-Features**. Click on the policy name **JMS-Advanced-Features**.
+
+  ![image of policies page](images/policies-page.png)
+
+6. There should be 3 policy statements. 
+    ```
+    ALLOW dynamic-group JMS_Advanced_Features_INSTANCE_PRINCIPALS_GROUP to MANAGE object-family in compartment Fleet_Compartment
+    ALLOW dynamic-group JMS_Advanced_Features_MACS_GROUP to MANAGE objects in compartment Fleet_Compartment
+    ALLOW service javamanagementservice to USE object-family in compartment Fleet_Compartment
+    ```
+
+    ![image of policy details page](images/policy-details-page.png)
 
 ## Learn More
 
